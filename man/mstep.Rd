@@ -17,36 +17,38 @@ mstep(data, modelid, z, \dots)
 matrix of observations.
 }
 \item{modelid}{
-An integer specifying a parameterization of the MVN covariance matrix defined 
-by volume, shape and orientation charactertistics of the underlying clusters. 
-The allowed values for \code{modelid} and their interpretation are as follows:
-\code{"EI"} : uniform spherical, \code{"VI"} : spherical, \code{"EEE"} : uniform variance,
-\code{"VVV"} : unconstrained variance, \code{"EEV"} : uniform shape and volume,
-\code{"VEV"} : uniform shape.
+  An integer specifying a parameterization of the MVN covariance matrix
+  defined by volume, shape and orientation charactertistics of the
+  underlying clusters. The allowed values for \code{modelid} and their
+  interpretation are as follows: \code{"EI"} : uniform spherical,
+  \code{"VI"} : spherical, \code{"EEE"} : uniform variance, \code{"VVV"} :
+  unconstrained variance, \code{"EEV"} : uniform shape and volume,
+  \code{"VEV"} : uniform shape. 
 }
 \item{z}{
-matrix of conditional probabilities. \code{z} should have a row for each observation
-in \code{data}, and a column for each component of the mixture.
+  matrix of conditional probabilities. \code{z} should have a row for
+  each observation in \code{data}, and a column for each component of
+  the mixture. 
 }
-\item{...}{
-additional arguments, as follows:
-}
-\item{eps}{
-Tolerance for determining singularity in the covariance matrix. The precise 
-definition of \code{eps} varies the parameterization, each of which has a default.
-}
-\item{equal}{
-Logical variable indicating whether or not to assume equal proportions in the
-mixture. Default : \code{FALSE}.
-}
-\item{noise}{
-Logical variable indicating whether or not to include a Poisson noise term in
-the model. Default : \code{FALSE}.
-}
-\item{Vinv}{
-An estimate of the inverse hypervolume of the data region (needed only if
-\code{noise = TRUE}). Default : determined by function \code{hypvol}
-}}
+\item{\dots}{
+  additional arguments, as follows:
+  \item{eps}{
+    Tolerance for determining singularity in the covariance matrix. The
+    precise definition of \code{eps} varies the parameterization, each
+    of which has a default. 
+  }
+  \item{equal}{
+    Logical variable indicating whether or not to assume equal
+    proportions in the mixture. Default : \code{FALSE}. 
+  }
+  \item{noise}{
+    Logical variable indicating whether or not to include a Poisson
+    noise term in the model. Default : \code{FALSE}. 
+  }
+  \item{Vinv}{
+    An estimate of the inverse hypervolume of the data region (needed only if
+    \code{noise = TRUE}). Default : determined by function \code{hypvol}
+}}}
 \value{
 A list whose components are the parameter estimates corresponding to \code{z}:
 

@@ -22,12 +22,14 @@ print.summary.emclust1(x, \dots)
     \code{object}). The default is to summarize over all numbers of clusters
     used in the original analysis. 
   }
-  \item{modelid}{
-    a vector of character strings denoting the models over which the
-    summary is to take place (must be a subset of the row names of
-    \code{object}). 
-  }
-  \item{\dots}{Further (standard) arguments to the \code{print} function.}}
+  \item{\dots}{Further arguments:
+    \item{modelid}{
+      a vector of character strings denoting the models over which the
+      summary is to take place (must be a subset of the row names of
+      \code{object}). 
+    }
+    \item{tree, smpl, noise, Vinv, equal}{}
+}}
 \value{
   A list giving the optimal (according to BIC) parameter and z values,
   together with the associated classification and its uncertainty.

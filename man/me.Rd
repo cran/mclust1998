@@ -9,51 +9,53 @@ MVN mixture model with possibly one Poisson noise term.
 }
 \usage{
 me(data, modelid, z, \dots)
-
-
 }
 \arguments{
-\item{data}{
-matrix of observations.
-}
-\item{modelid}{
-An integer specifying a parameterization of the MVN covariance matrix defined 
-by volume, shape and orientation charactertistics of the underlying clusters. 
-The allowed values for \code{modelid} and their interpretation are as follows:
-\code{"EI"} : uniform spherical, \code{"VI"} : spherical, \code{"EEE"} : uniform variance,
-\code{"VVV"} : unconstrained variance, \code{"EEV"} : uniform shape and volume,
-\code{"VEV"} : uniform shape.
-}
-\item{z}{
-matrix of conditional probabilities. \code{z} should have a row for each observation
-in \code{data}, and a column for each component of the mixture.
-}
-\item{...}{
-additional arguments, as follows:
-}
-\item{eps}{
-Tolerance for determining singularity in the covariance matrix. The precise 
-definition of \code{eps} varies the parameterization, each of which has a default.
-}
-\item{tol}{
-The iteration is terminated if the relative error in the loglikelihood value
-falls below \code{tol}. Default : \code{sqrt(.Machine$double.eps)}.
-}
-\item{itmax}{
-Upper limit on the number of iterations. Default : \code{Inf} (no upper limit).
-}
-\item{equal}{
-Logical variable indicating whether or not to assume equal proportions in the
-mixture. Default : \code{FALSE}.
-}
-\item{noise}{
-Logical variable indicating whether or not to include a Poisson noise term in
-the model. Default : \code{FALSE}.
-}
-\item{Vinv}{
-An estimate of the inverse hypervolume of the data region (needed only if
-\code{noise = TRUE}). Default : determined by function \code{hypvol}
-}}
+  \item{data}{
+    matrix of observations.
+  }
+  \item{modelid}{
+    An integer specifying a parameterization of the MVN covariance matrix
+    defined by volume, shape and orientation charactertistics of the
+    underlying clusters. The allowed values for \code{modelid} and their
+    interpretation are as follows: \code{"EI"} : uniform spherical,
+    \code{"VI"} : spherical, \code{"EEE"} : uniform variance, \code{"VVV"} :
+    unconstrained variance, \code{"EEV"} : uniform shape and volume,
+    \code{"VEV"} : uniform shape. 
+  }
+  \item{z}{
+    matrix of conditional probabilities. \code{z} should have a row for
+    each observation in \code{data}, and a column for each component of
+    the mixture.
+  }
+  \item{\dots}{
+    additional arguments, as follows:
+    \item{eps}{
+      Tolerance for determining singularity in the covariance matrix. The
+      precise definition of \code{eps} varies the parameterization, each
+      of which has a default.
+    }
+    \item{tol}{
+      The iteration is terminated if the relative error in the
+      loglikelihood value falls below \code{tol}. Default :
+      \code{sqrt(.Machine$double.eps)}. 
+    }
+    \item{itmax}{
+      Upper limit on the number of iterations. Default : \code{Inf} (no
+      upper limit). 
+    }
+    \item{equal}{
+      Logical variable indicating whether or not to assume equal
+      proportions in the mixture. Default : \code{FALSE}. 
+    }
+    \item{noise}{
+      Logical variable indicating whether or not to include a Poisson
+      noise term in the model. Default : \code{FALSE}. 
+    }
+    \item{Vinv}{
+      An estimate of the inverse hypervolume of the data region (needed only if
+      \code{noise = TRUE}). Default : determined by function \code{hypvol}
+}}}
 \value{
 the conditional probablilities at the final iteration (information about the
 iteration is included as attributes).
